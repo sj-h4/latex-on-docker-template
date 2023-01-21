@@ -3,6 +3,13 @@ RUN apt-get update \
   && apt-get install -y \
   git\
   libfontconfig1 \
+  locales \
   && rm -rf /var/lib/apt/lists/*
+
+# locale の設定
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
+  && locale-gen
+
+# gb4e のインストール
 RUN tlmgr update --self --all
 RUN tlmgr install gb4e
