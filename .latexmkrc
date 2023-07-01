@@ -1,3 +1,4 @@
+ensure_path('OSFONTDIR', './fonts');
 $latex = 'lualatex %O -synctex=1 -interaction=nonstopmode %S';
 $bibtex = 'upbibtex';
 $makeindex = 'upmendex %O -o %D %S';
