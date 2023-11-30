@@ -12,4 +12,5 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
 
 # gb4e のインストール
 RUN tlmgr update --self --all
+RUN tlmgr install biber
 RUN tlmgr install gb4e
