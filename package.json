@@ -1,0 +1,19 @@
+{
+    "scripts": {
+      "count": "texcount -merge -jp -char main.tex",
+      "prepare": "husky install"
+    },
+    "dependencies": {
+      "husky": "^8.0.3",
+      "lint-staged": "^15.2.0",
+      "textlint": "^13.4.1",
+      "textlint-filter-rule-allowlist": "^4.0.0",
+      "textlint-filter-rule-comments": "^1.2.2",
+      "textlint-plugin-latex2e": "^1.2.1",
+      "textlint-rule-preset-ja-technical-writing": "^9.0.0"
+    },
+    "lint-staged": {
+      "*.tex": "textlint"
+    }
+}
+  

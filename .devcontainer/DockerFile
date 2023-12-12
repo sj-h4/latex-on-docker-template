@@ -2,6 +2,7 @@ FROM paperist/texlive-ja:latest
 RUN apt update \
   && apt install -y \
   git\
+  npm\
   libfontconfig1 \
   locales \
   && rm -rf /var/lib/apt/lists/*
@@ -10,7 +11,13 @@ RUN apt update \
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
   && locale-gen
 
-# gb4e のインストール
+# エイリアスの設定
+RUN echo "alias ga='git add'
+alias gac='git commit -a -m'
+alias gs='git status'" >> ~/.bashrc
+
+# tex 用パッケージのインストール
 RUN tlmgr update --self --all
 RUN tlmgr install biber
 RUN tlmgr install gb4e
+RUN tlmgr install texcount

@@ -1,0 +1,19 @@
+{
+    "plugins": ["latex2e"],
+      "rules": {
+      "preset-ja-technical-writing": {
+        "sentence-length": {
+          "max": 200
+        },
+        "max-kanji-continuous-len": {
+          "max": 6
+        }
+      }
+    },
+    "filters": {
+          "comments": {
+              "enablingComment": "textlint-enable",
+              "disablingComment": "textlint-disable"
+          }
+      }
+}
