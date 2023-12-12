@@ -2,7 +2,8 @@ FROM paperist/texlive-ja:latest
 RUN apt update \
   && apt install -y \
   git\
-  npm\
+  curl\
+  unzip\
   libfontconfig1 \
   locales \
   && rm -rf /var/lib/apt/lists/*
@@ -10,6 +11,9 @@ RUN apt update \
 # locale の設定
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
   && locale-gen
+
+# bun のインストール
+RUN curl -fsSL https://bun.sh/install | bash
 
 # エイリアスの設定
 RUN echo "alias ga='git add'
