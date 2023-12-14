@@ -16,9 +16,9 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
 RUN curl -fsSL https://bun.sh/install | bash
 
 # エイリアスの設定
-RUN echo "alias ga='git add'
-alias gac='git commit -a -m'
-alias gs='git status'" >> ~/.bashrc
+RUN echo 'alias ga="git add"' >> ~/.bashrc
+RUN echo 'alias gac="git commit -a -m"' >> ~/.bashrc
+RUN echo 'alias gs="git status"' >> ~/.bashrc
 
 # tex 用パッケージのインストール
 RUN tlmgr update --self --all
