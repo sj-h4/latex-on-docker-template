@@ -14,6 +14,8 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
 
 # bun のインストール
 RUN curl -fsSL https://bun.sh/install | bash
+RUN echo 'export BUN_INSTALL="$HOME/.bun"' >> ~/.bashrc
+RUN echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.bashrc
 
 # エイリアスの設定
 RUN echo 'alias ga="git add"' >> ~/.bashrc
